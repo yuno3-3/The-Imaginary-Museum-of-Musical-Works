@@ -1,0 +1,66 @@
+﻿body {
+
+
+        line-height: 1.8; overflow-x: hidden;
+    }
+    .background-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+                    url('https://images.unsplash.com/photo-1514320291840-2e0a9bf285ae?w=2000');
+        background-size: cover; z-index: -1;
+    }
+
+    /* --- ヘッダー --- */
+    header {
+        position: fixed; top: 0; width: 100%; z-index: 100;
+        background: rgba(0,0,0,0.6); backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .top-bar {padding: 15px 40px; }
+    .logo {font-size: 1rem; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .work-id { text-align: right; font-size: 0.7rem; color: #d4af37; letter-spacing: 2px; }
+
+    /* --- レイアウト --- */
+    .wrap { max-width: 1300px; margin: 0 auto; padding: 140px 40px 60px; }
+.layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; }
+.layout.no-score { grid-template-columns: 1fr; }
+@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+
+    /* --- 展示パネル（報告書） --- */
+    .display-panel, .score-panel {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 50px; backdrop-filter: blur(5px);
+    }
+    .work-header { margin-bottom: 40px; }
+    .work-title { font-size: 2.2rem; font-weight: normal; letter-spacing: 2px; margin-bottom: 5px; }
+    .work-meta { font-size: 0.8rem; color: #888; letter-spacing: 1px; }
+
+    /* 資料ステータス表示 */
+    .archive-status {
+        margin-bottom: 50px; border-top: 1px solid #d4af37; padding-top: 20px;
+        font-size: 0.65rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase;
+    }
+
+    /* テキストブロック */
+    .content-block { margin-bottom: 50px; }
+    .content-block h3 { 
+        font-size: 0.8rem; letter-spacing: 3px; color: #d4af37; 
+        margin-bottom: 25px; border-left: 3px solid #d4af37; padding-left: 15px; 
+    }
+    .content-block p { font-size: 0.95rem; color: #ccc; text-align: justify; white-space: pre-wrap; margin-bottom: 25px; }
+    .section3-text { font-size: 0.95rem; color: #ccc; text-align: justify; white-space: pre-wrap; margin-bottom: 25px; }
+    .section3-list { list-style: none; margin: 0; padding: 0; counter-reset: sectionStep; }
+    .section3-list li { counter-increment: sectionStep; display: grid; grid-template-columns: 2.2em 1fr; column-gap: 0.7em; margin-bottom: 14px; font-size: 0.95rem; line-height: 1.8; color: #ccc; font-family: inherit; }
+    .section3-list li::before { content: counter(sectionStep) "."; text-align: right; color: #ccc; font-size: inherit; line-height: inherit; }
+    .section3-list li span { display: block; color: #ccc; font-size: inherit; line-height: inherit; }
+    .content-block .quote { 
+        font-style: italic; font-size: 0.9rem; color: #888; 
+        border-bottom: 1px solid #222; padding-bottom: 25px; margin-bottom: 30px; 
+    }
+
+    /* PDF表示 */
+    .score-header h3 { font-size: 0.8rem; letter-spacing: 3px; color: #d4af37; margin-bottom: 25px; }
+    .pdf-container { height: 850px; background: #0a0a0a; border: 1px solid #222; }
+    .pdf-container iframe { width: 100%; height: 100%; border: none; }
+

@@ -1,0 +1,127 @@
+﻿        body, html {
+            height: 100%;
+
+
+
+            line-height: 2;
+            overflow-x: hidden;
+        }
+
+        /* 背景: 煙や抽象的な質感を出し、歴史の不透明さを表現 */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                url('https://images.unsplash.com/photo-1514320291840-2e0a9bf285ae?auto=format&fit=crop&q=80&w=2000'); /* 楽器の抽象的なディテール */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        /* ヘッダー（共通デザイン） */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .top-bar {padding: 10px 40px;
+        }
+
+        .logo {font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-decoration: none;
+            grid-column: 2;
+            text-align: center;
+        }
+
+        /* コンテンツエリア */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 180px 40px 100px; /* ヘッダー分を空ける */
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* タイトル部分 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-title h1 {
+            font-size: 0.8rem;
+            letter-spacing: 0.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .section-title .main-copy {
+            font-size: 2.2rem;
+            font-weight: normal;
+            letter-spacing: 0.3rem;
+        }
+
+        /* 本文ブロック */
+        .philosophy-text {
+            text-align: justify;
+            margin-bottom: 80px;
+        }
+
+        .paragraph {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* 段落の横に細い線を入れる装飾 */
+        .paragraph::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 10px;
+            width: 1px;
+            height: 40px;
+            background-color: #d4af37;
+        }
+
+        .paragraph p {
+            font-size: 1.05rem;
+            letter-spacing: 0.05rem;
+            color: #ccc;
+            transition: color 0.5s;
+        }
+
+        .paragraph:hover p {
+
+        }
+
+        /* フッター的な装飾 */
+        .footer-logo {
+            text-align: center;
+            margin-top: 150px;
+            opacity: 0.3;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* スクロールバーのカスタマイズ（雰囲気を壊さないよう細く） */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+
+
+.back-label { font-size: 0.7rem; letter-spacing: 2px; }

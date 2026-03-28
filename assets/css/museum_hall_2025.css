@@ -1,0 +1,175 @@
+﻿body {
+
+
+            overflow: hidden;
+        }
+
+        /* スクロールする窓 */
+        .museum-viewport {
+            width: 100vw;
+            height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* 博物館の長い廊下（中身に合わせて自動で伸びるように修正） */
+        .museum-hall {
+            display: flex;
+            align-items: flex-end;
+            min-width: 100vw;
+            width: fit-content; /* 中身に合わせて横幅を確保 */
+            height: 100%;
+            position: relative;
+            background-color: #dcdcdc;
+            background-image: url('https://www.transparenttextures.com/patterns/concrete-wall-2.png');
+        }
+
+        .floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 25vh;
+            background: linear-gradient(to bottom, #222, #000);
+            box-shadow: inset 0 30px 60px rgba(0,0,0,0.8);
+            z-index: 1;
+        }
+
+        /* --- 木製ドア（EXIT） --- */
+        .door-container {
+            position: relative;
+            margin-left: 100px;
+            margin-bottom: 25vh;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .obj-door {
+            display: block;
+            width: 150px;
+            height: 380px;
+            background: #3d2b1f;
+            border: 10px solid #2a1d15;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.4);
+            text-decoration: none;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .door-knob {
+            position: absolute; right: 20px; top: 55%;
+            width: 12px; height: 12px;
+            background: radial-gradient(circle, #d4af37, #8a6d1a);
+            border-radius: 50%;
+        }
+
+        .exit-label {
+            position: absolute; top: -40px; width: 100%;
+            text-align: center; color: #666; font-size: 0.7rem; letter-spacing: 3px;
+            transition: color 0.2s ease, letter-spacing 0.2s ease, text-shadow 0.2s ease;
+        }
+
+        .door-container:hover .exit-label {
+            color: #d4af37;
+            letter-spacing: 4px;
+            text-shadow: 0 0 8px rgba(212,175,55,0.45);
+        }
+
+        .door-container:hover .obj-door {
+            transform: translateY(-2px);
+            box-shadow: 10px 0 36px rgba(0,0,0,0.5);
+        }
+
+        /* --- シックな木製エレベーター --- */
+        .elevator-container {
+            position: relative;
+            margin-left: 80px;
+            margin-bottom: 25vh;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .obj-elevator {
+            width: 180px;
+            height: 380px;
+            background: #4a3728; /* 深みのある木の色 */
+            border: 12px solid #2d1f16; /* 重厚な木枠 */
+            box-shadow: 10px 0 40px rgba(0,0,0,0.5);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* エレベーター内の装飾（縦のライン） */
+        .obj-elevator::before {
+            content: "";
+            position: absolute; top: 0; bottom: 0; left: 50%;
+            width: 4px; background: rgba(0,0,0,0.3);
+        }
+
+        /* 階数表示（木製に馴染むアンティーク風） */
+        .ev-header {
+            width: 50px; height: 30px;
+            background: #1a1a1a;
+            margin-top: 25px;
+            border: 1px solid #d4af37; /* 金色の縁取り */
+            display: flex; justify-content: center; align-items: center;
+            z-index: 3;
+        }
+        .ev-display { color: #d4af37; font-family: 'Courier New', Courier, monospace; font-weight: bold; }
+
+        /* 木製パネルの操作ボタン */
+        .ev-panel {
+            position: absolute; right: -45px; top: 45%;
+            width: 35px; height: 80px;
+            background: #3d2b1f; border: 2px solid #2a1d15;
+            display: flex; flex-direction: column; justify-content: space-around;
+            align-items: center; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .ev-button {
+            width: 20px; height: 20px;
+            background: #2a1d15; color: #d4af37;
+            border: 1px solid #5d4037;
+            cursor: pointer; display: flex; justify-content: center; align-items: center;
+            font-size: 10px; transition: 0.2s;
+        }
+        .ev-button:hover { background: #5d4037; }
+
+        /* --- 展示エリア --- */
+        .paintings-area {
+            display: flex;
+            gap: 150px;
+            padding: 0 150px 35vh 150px; /* 左右に余白をたっぷり取る */
+            z-index: 2;
+        }
+
+        .painting-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            flex-shrink: 0; /* 絵が縮まないように固定 */
+        }
+
+        .painting-frame {
+            height: 320px;
+            width: auto;
+            background: #111; border: 12px solid #1a1a1a;
+            box-shadow: 15px 25px 40px rgba(0,0,0,0.4);
+            transition: 0.3s;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        .painting-frame img { width: auto; height: 100%; display: block; object-fit: contain; }
+        .painting-frame:hover { transform: translateY(-15px); border-color: #1a1a1a; }
+
+        .name-plate {
+            background: #ceba9c;
+            color: #3d2b1f;
+            padding: 8px 20px; font-size: 0.75rem; font-weight: bold;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            min-width: 160px; text-align: center;
+        }
+

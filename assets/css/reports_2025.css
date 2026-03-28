@@ -1,0 +1,109 @@
+﻿body,
+html {
+  min-height: 100%;
+  line-height: 2;
+  overflow-x: hidden;
+}
+
+.background-overlay {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
+    url('https://images.unsplash.com/photo-1514320291840-2e0a9bf285ae?auto=format&fit=crop&q=80&w=2000');
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.top-bar {
+  padding: 10px 40px;
+}
+
+.logo {
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  grid-column: 2;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 180px 40px 100px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-title h1 {
+  font-size: 0.8rem;
+  letter-spacing: 0.8rem;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.section-title .main-copy {
+  font-size: 2.2rem;
+  font-weight: normal;
+  letter-spacing: 0.3rem;
+}
+
+.reports-list {
+  display: grid;
+  gap: 16px;
+}
+
+.report-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.report-item:hover {
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+.report-title {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.report-author {
+  font-size: 0.9rem;
+  color: #c8c8c8;
+  white-space: nowrap;
+}
+
+.footer-logo {
+  text-align: center;
+  margin-top: 120px;
+  opacity: 0.3;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .report-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .report-author {
+    white-space: normal;
+  }
+}

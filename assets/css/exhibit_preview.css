@@ -1,0 +1,135 @@
+﻿body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 96px 20px 48px;
+}
+
+/* 背景に薄いテクスチャを追加（統一感のため） */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/concrete-wall-2.png');
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.preview-container {
+  text-align: center;
+  max-width: 560px;
+  width: min(92vw, 560px);
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* メイン画像エリア */
+.main-visual {
+  width: 100%;
+  height: clamp(280px, 44vh, 420px);
+  background: #0a0a0a;
+  margin-bottom: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-visual img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* プレイヤー部分 */
+.audio-player {
+  margin-bottom: 26px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+audio {
+  width: 100%;
+  filter: invert(1) hue-rotate(180deg) brightness(1.5);
+  opacity: 0.8;
+}
+
+.work-title {
+  font-size: 1.65rem;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/* 報告書（詳細）へのリンク */
+.details-link {
+  display: inline-block;
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 8px;
+  transition: 0.3s;
+}
+
+.details-link:hover {
+  border-color: #fff;
+  letter-spacing: 5px;
+}
+
+/* 戻るボタン */
+.back-nav {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.back-nav a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.back-nav a:hover {
+  color: #d4af37;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding-top: 80px;
+  }
+
+  .back-nav {
+    top: 18px;
+    left: 18px;
+  }
+
+  .work-title {
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+  }
+}
